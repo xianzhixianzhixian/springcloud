@@ -1,0 +1,12 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: eureka-client
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+    register-with-eureka: true
+    fetch-registry: true #是否需要从eureka上获取注册信息
