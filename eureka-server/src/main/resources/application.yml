@@ -1,11 +1,16 @@
 server:
   port: 8081
 
+spring:
+  application:
+    name: eureka-server
+
 eureka:
   instance:
     hostname: 127.0.0.1
+    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-    register-with-eureka: false #不注册自己
-    fetch-registry: false #注册中心是自己，不需要检索服务
+      defaultZone: http://127.0.0.1:8084/eureka
+    register-with-eureka: true #注册中心高可用需要多个注册中心之间互相注册
+    fetch-registry: true #fetch-registry打开才能从eureka拉取服务列表，ribbon才能做负载均衡
