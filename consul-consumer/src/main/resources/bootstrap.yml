@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: consul-consumer
+  cloud:
+    consul:
+      host: 192.168.56.101
+      port: 8500
+      enabled: true
+      discovery:
+        hostname: 192.168.56.101
+        enabled: true
