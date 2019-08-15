@@ -1,4 +1,4 @@
-package com.eureka.eurekaserver;
+package com.eureka.eurekaserver2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class EurekaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaApplication.class, args);
+        SpringApplication.run(EurekaApplication2.class, args);
     }
 
 }
