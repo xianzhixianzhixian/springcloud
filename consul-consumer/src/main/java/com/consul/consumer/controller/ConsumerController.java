@@ -19,6 +19,7 @@ public class ConsumerController {
     private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
+    private int requestCount = 1;
 
     /**
      * 获取已注册的服务
@@ -63,7 +64,13 @@ public class ConsumerController {
         List<ServiceInstance> list = discoveryClient.getInstances(name);
         if (list != null && !list.isEmpty()) {
             //这里需要实现负载均衡算法，取余算法，权重值算法
-            return list.get(0).getUri().toString();
+            int size = list.size();
+            int index = requestCount % size;
+            requestCount++;
+            if (requestCount == size) {
+                requestCount = 1;
+            }
+            return list.get(index).getUri().toString();
         }
         return null;
     }
