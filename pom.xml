@@ -9,6 +9,7 @@
         <module>eureka-consumer</module>
         <module>eureka-server2</module>
         <module>consul-client</module>
+        <module>zookeeper-client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
