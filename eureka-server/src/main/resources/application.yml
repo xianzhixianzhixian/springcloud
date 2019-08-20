@@ -11,6 +11,6 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8084/eureka
-    register-with-eureka: true #注册中心高可用需要多个注册中心之间互相注册
-    fetch-registry: true #fetch-registry打开才能从eureka拉取服务列表，ribbon才能做负载均衡
+      defaultZone: http://127.0.0.1:8081/eureka
+    register-with-eureka: false #注册中心高可用需要多个注册中心之间互相注册
+    fetch-registry: false #fetch-registry打开才能从eureka拉取服务列表，ribbon才能做负载均衡

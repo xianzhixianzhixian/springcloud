@@ -31,8 +31,16 @@ public class ConsumerController {
         return services;
     }
 
-    public List<String> getServiceUriList(String name) {
-        List<ServiceInstance> list = discoveryClient.getInstances(name);
+    @RequestMapping(value = "/getServiceInstances")
+    public List<ServiceInstance> getServiceInstances(String serviceId) {
+        //Consul获取的注册中心已注册的实例时获得的uri是IP的列表,所以在调用接口时只能自己实现客户端负载均衡
+        //uri类似http://192.168.56.101:8086
+        return discoveryClient.getInstances(serviceId);
+    }
+
+    @RequestMapping(value = "/getInstances")
+    public List<String> getServiceUriList(String serviceId) {
+        List<ServiceInstance> list = discoveryClient.getInstances(serviceId);
         List<String> services = new ArrayList<>();
         for (ServiceInstance instance : list) {
             if (instance != null) {
