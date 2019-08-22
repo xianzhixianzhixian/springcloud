@@ -9,6 +9,6 @@ spring:
       discovery:
         service-name: ${spring.application.name}
         instance-id: ${spring.application.name}-${server.port}-${random.int}
-        hostname: 127.0.0.1
+#        hostname: 127.0.0.1 #hostname不配置默认值是主机hostname作为默认的值
         enabled: true
         register-health-check: false
