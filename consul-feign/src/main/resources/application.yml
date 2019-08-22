@@ -1,0 +1,6 @@
+server:
+  port: 8087
+
+ribbon:
+  ReadTimeout: 5000 #毫秒
+  ConnectTimeout: 500 #毫秒
