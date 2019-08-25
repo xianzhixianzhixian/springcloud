@@ -13,13 +13,13 @@ public class ConsulFeignController {
     @Autowired
     private MemberFeign memberFeign;
 
-    @HystrixCommand(fallbackMethod = "fallback")
+//    @HystrixCommand(fallbackMethod = "fallback")
     @RequestMapping(value = "/getServices")
     public String getServices() {
         return memberFeign.getServices();
     }
 
-    private String fallback() {
-        return "服务器访问人数过多，请稍后再试";
-    }
+//    private String fallback() {
+//        return "服务器访问人数过多，请稍后再试";
+//    }
 }
