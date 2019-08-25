@@ -1,7 +1,4 @@
 # Getting Started
 
 ### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-
+使用Zuul实现反向代理

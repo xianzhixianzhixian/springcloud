@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: consul-feign-hystrix-zuul
+  cloud:
+    consul:
+      enabled: true
+      host: 192.168.56.101
+      port: 8500
+      discovery:
+        enabled: true
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${server.port}-${random.int}
+        register-health-check: false
