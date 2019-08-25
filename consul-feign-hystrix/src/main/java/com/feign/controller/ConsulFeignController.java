@@ -1,8 +1,8 @@
 package com.feign.controller;
 
 import com.feign.util.MemberFeign;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/feign")
 public class ConsulFeignController {
 
+    @Qualifier("MemberFeign")
     @Autowired
     private MemberFeign memberFeign;
 
