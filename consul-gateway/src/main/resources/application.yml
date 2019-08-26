@@ -1,0 +1,19 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: consul-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      #是否与服务发现组件相结合,通过serviceId转发到具体实例
+      #默认为false,设为true开启通过服务中心自动依据ServiceId创建路由的功能
+      routes:
+      - id: api-consumer #系统路由
+        uri: lb://CONSUL-CONSUMER #这里服务名必须要大写,必须使用http进行转发,lb代表从注册中心获取服务
+        predicates:
+        - Path=/api-consumer/**
+        filters:
+        - StripPrefix=1 #去掉前缀,127.0.0.1:8087/api-consumer/user/get,其中1表示api-consumer,2表示api-consumer/user,3表示api-consumer/user/get

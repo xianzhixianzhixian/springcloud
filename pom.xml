@@ -22,6 +22,7 @@
         <module>zookeeper-client</module>
         <module>consul-feign-hystrix</module>
         <module>consul-feign-hystrix-zuul</module>
+        <module>consul-gateway</module>
     </modules>
 
     <properties>
