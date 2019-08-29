@@ -23,6 +23,7 @@
         <module>consul-feign-hystrix</module>
         <module>consul-feign-hystrix-zuul</module>
         <module>consul-gateway</module>
+        <module>config-server</module>
     </modules>
 
     <properties>

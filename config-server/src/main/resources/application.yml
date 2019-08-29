@@ -1,0 +1,15 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/lxmajia/config
+#            username:
+#            password:
+          search-paths: '{application}' #git仓库中文件夹路径,可以用占位符来代替
+          default-label: master
