@@ -6,10 +6,22 @@ spring:
     name: config-server
   cloud:
     config:
+      enabled: true
+      label: master
       server:
         git:
-          uri: https://gitee.com/lxmajia/config
+          uri: https://github.com/xianzhixianzhixian/springcloud.git
 #            username:
 #            password:
-          search-paths: '{application}' #git仓库中文件夹路径,可以用占位符来代替
-          default-label: master
+          search-paths: config-server
+
+#第二套配置方案
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://gitee.com/lxmajia/config.git
+#                      username:
+#                      password:
+#                    search-paths: '{application}' #git仓库中文件夹路径,可以用占位符来代替
+#          default-label: master

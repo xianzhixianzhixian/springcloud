@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: config-client #这里的名字不重要,只要在config-server中配置了search-paths,uri,label即可找到对应的配置文件组
+  cloud:
+    config:
+      label: master #指定git分支
+      profile: prod #指定生效的文件的后缀*-prod
+      uri: http://127.0.0.1:8089
