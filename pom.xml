@@ -18,7 +18,8 @@
         <module>eureka-server</module>
         <module>eureka-client</module>
         <module>eureka-consumer</module>
-        <module>consul-client</module>
+        <module>consul-client-zipkin</module>
+        <module>consul-consumer-zipkin</module>
         <module>zookeeper-client</module>
         <module>consul-feign-hystrix</module>
         <module>consul-feign-hystrix-zuul</module>

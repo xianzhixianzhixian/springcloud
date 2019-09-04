@@ -57,7 +57,7 @@ public class ConsumerController {
      */
     @RequestMapping(value = "/consumer")
     public String consumer() throws Exception {
-        String serviceUrl = getServiceUri("consul-client") + "/user/get";
+        String serviceUrl = getServiceUri("consul-client-zipkin") + "/user/get";
         String result = (String) restTemplate.getForObject(serviceUrl, String.class);
         return result;
     }

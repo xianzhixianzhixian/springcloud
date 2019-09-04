@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    consul:
+      host: 192.168.56.101 #ip
+      port: 8500 #consul 服务器端口
+      enabled: true
+      discovery:
+        enabled: true #是否启用服务发现
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${server.port}-${random.int}
+        register-health-check: false
+        prefer-ip-address: false
