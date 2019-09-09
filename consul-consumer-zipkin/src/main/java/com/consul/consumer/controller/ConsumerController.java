@@ -3,6 +3,7 @@ package com.consul.consumer.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -24,20 +25,20 @@ public class ConsumerController {
      * 获取已注册的服务
      * @return
      */
-    @RequestMapping(value = "/getServices")
+    @GetMapping(value = "/getServices")
     public List<String> getServices() {
         List<String> services = discoveryClient.getServices();
         return services;
     }
 
-    @RequestMapping(value = "/getServiceInstances")
+    @GetMapping(value = "/getServiceInstances")
     public List<ServiceInstance> getServiceInstances(String serviceId) {
         //Consul获取的注册中心已注册的实例时获得的uri是IP的列表,所以在调用接口时只能自己实现客户端负载均衡
         //uri类似http://192.168.56.101:8086
         return discoveryClient.getInstances(serviceId);
     }
 
-    @RequestMapping(value = "/getInstances")
+    @GetMapping(value = "/getInstances")
     public List<String> getServiceUriList(String serviceId) {
         List<ServiceInstance> list = discoveryClient.getInstances(serviceId);
         List<String> services = new ArrayList<>();
@@ -55,7 +56,7 @@ public class ConsumerController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/consumer")
+    @GetMapping(value = "/consumer")
     public String consumer() throws Exception {
         String serviceUrl = getServiceUri("consul-client-zipkin") + "/user/get";
         String result = (String) restTemplate.getForObject(serviceUrl, String.class);
