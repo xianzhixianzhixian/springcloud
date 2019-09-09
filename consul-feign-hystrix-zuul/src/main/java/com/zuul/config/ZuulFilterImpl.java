@@ -17,7 +17,7 @@ public class ZuulFilterImpl extends ZuulFilter {
      */
     @Override
     public String filterType() {
-        //pre 在青丘被路由之前调用
+        //pre 在请求被路由之前调用
         //route 在路由请求时被调用
         //post 在route和error过滤器之后被调用
         //error 处理请求发生错误时被调用
@@ -48,11 +48,11 @@ public class ZuulFilterImpl extends ZuulFilter {
         RequestContext currentContex = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContex.getRequest();
         String userToken = request.getHeader("Authorization");
-        if (StringUtils.isEmpty(userToken)) {
-            currentContex.setSendZuulResponse(false);
-            currentContex.setResponseStatusCode(401);
-            currentContex.setResponseBody("userToken is null");
-        }
+//        if (StringUtils.isEmpty(userToken)) {
+//            currentContex.setSendZuulResponse(false);
+//            currentContex.setResponseStatusCode(401);
+//            currentContex.setResponseBody("userToken is null");
+//        }
         //否则正常执行业务逻辑
         return true;
     }

@@ -20,7 +20,7 @@ zuul:
   routes:
     api-a:
       path: /api-consumer/**
-      serviceId: consul-consumer
+      serviceId: consul-consumer-zipkin
     api-b:
-      path: /api-feign/**
-      serviceId: consul-feign
+      path: /api-client/**
+      serviceId: consul-client-zipkin

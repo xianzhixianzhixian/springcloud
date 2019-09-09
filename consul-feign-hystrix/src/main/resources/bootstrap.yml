@@ -1,6 +1,6 @@
 spring:
   application:
-    name: consul-feign
+    name: consul-feign-hysrix
   cloud:
     consul:
       host: 192.168.56.101
