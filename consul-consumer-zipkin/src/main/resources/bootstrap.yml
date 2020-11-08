@@ -8,5 +8,12 @@ spring:
         enabled: true
         service-name: ${spring.application.name}
         instance-id: ${spring.application.name}-${server.port}-${random.int}
-        register-health-check: false
+        health-check-path: /actuator/health
+        health-check-interval: 15s
+        health-check-critical-timeout: 30s
+        #配置服务注册
+        register: true
+        #服务停止时取消注册
+        deregister: true
+        #表示注册时使用ip而不是hostname
         prefer-ip-address: false
